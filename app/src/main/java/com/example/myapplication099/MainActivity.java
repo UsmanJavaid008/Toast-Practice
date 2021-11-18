@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openWebsite(View view) {
-        String url = "https://github.com/anas1590/";
+        String url = "https://github.com/UsmanJavaid008";
         Uri webpage = Uri.parse(url);
         Intent intent = new Intent(Intent.ACTION_VIEW, webpage);
         startActivity(intent);
@@ -37,5 +37,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void showToast(View view) {
         Toast toast = Toast.makeText(this, "Hello! I'm Toast", Toast.LENGTH_LONG);
+    }
+
+     public void showCustomizedToast(View view) {
+        setContentView(R.layout.toast_layout);
+        view = LayoutInflater.from(MainActivity.this).inflate(R.layout.toast_layout, null);
+        Toast toast = new Toast(MainActivity.this);
+        TextView tvMessage = view.findViewById(R.id.textView3);
+        tvMessage.setText("Toast is Showing");
+        toast.setView(view);
+        toast.setGravity(Gravity.LEFT,100,200);
+        toast.show();
     }
 }
